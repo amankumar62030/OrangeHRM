@@ -10,12 +10,12 @@ time.sleep(2)
 
 # To Verify "Admin" page loads succesfully.
 
-username = driver.find_element(By.NAME,"username").send_keys("Admin")
-time.sleep(2)
-password = driver.find_element(By.NAME,"password").send_keys("admin123")
-time.sleep(2)
+username = driver.find_element(By.NAME,"username")
+username.send_keys("Admin")
+password = driver.find_element(By.NAME,"password")
+password.send_keys("admin123")
 driver.find_element(By.CLASS_NAME, "oxd-button").click()
-time.sleep(2)
+time.sleep(4)
 
 driver.find_element(By.XPATH, "//li[@class='oxd-main-menu-item-wrapper']").click()
 time.sleep(5)
