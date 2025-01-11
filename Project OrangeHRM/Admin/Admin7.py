@@ -35,7 +35,7 @@ time.sleep(1)
 driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[1]/div/button').click()
 time.sleep(1)
 
-#enter the name
+#enter the names
 driver.find_element(By.XPATH,'//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input').send_keys("Grade 7")
 time.sleep(4)
 
