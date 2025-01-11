@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 driver = webdriver.Chrome()
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
@@ -29,10 +30,10 @@ try:
     user_name.send_keys("Admin")
     time.sleep(2)
 
-    user_role_dropdown = driver.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]")
+    user_role_dropdown = Select(driver.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]"))
     user_role_dropdown.click()
     time.sleep(2)
-    user_role_dropdown.send_keys(Keys.DOWN)
+    user_role_dropdown.select_by_visible_text("Admin")
     time.sleep(3)
 
     emp_name = driver.find_element(By.XPATH,"//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/input")
