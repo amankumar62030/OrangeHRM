@@ -25,10 +25,10 @@ time.sleep(1)
 
 
 try:
-    delete_button = driver.find_element(By.XPATH, "//button[@class='oxd-button oxd-button--medium oxd-button--label-danger']")
+    delete_button = driver.find_element(By.XPATH, "//div[@role='rowgroup']//div[2]//div[1]//div[6]//div[1]//button[1]//i[1]")
     delete_button.click()
     time.sleep(2)
-    confirm_delete_button = driver.find_element(By.XPATH, "//button[text()='Yes, Delete']")  # Fixed locator
+    confirm_delete_button = driver.find_element(By.XPATH, '//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]')  # Fixed locator
     confirm_delete_button.click()
     time.sleep(2)
     print("User Deleted Successfully")
