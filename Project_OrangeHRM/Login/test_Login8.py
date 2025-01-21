@@ -1,5 +1,6 @@
 
-
+import allure
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -25,5 +26,17 @@ class TestClass:
             dashboard_element = driver.find_element(By.LINK_TEXT, "Dashboard")
             assert dashboard_element.is_displayed()
             print("Login Successful")
-        except NoSuchElementException:
+        except NoSuchElementException as e:
+            # Capture and attach screenshot on failure
+            with allure.step("Capture screenshot on failure"):
+                screenshot_path = os.path.join(os.getcwd(), "login_failure_screenshot.png")
+                driver.save_screenshot(screenshot_path)
+                allure.attach.file(
+                    screenshot_path,
+                    name="Login_Failure_Screenshot",
+                    attachment_type=allure.attachment_type.PNG
+                )
             pytest.fail("Login Failed")
+        finally:
+            # Close the browser
+            driver.quit()
